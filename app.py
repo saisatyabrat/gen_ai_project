@@ -35,10 +35,12 @@ safety_settings = [
   },
 ]
 
+system_instruction = " you are bug fixer app. handel all error user given code and re- write that code without bug "
+
 model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest",
                               generation_config=generation_config,
+                              system_instruction=system_instruction,
                               safety_settings=safety_settings)
-
 promt = st.text_input("Enter your python code")
 
 if st.button("Generate") == True:
